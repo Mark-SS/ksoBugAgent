@@ -34,8 +34,10 @@
     ViewController *viewController = [ViewController new];
     
     NSString *string = @"Here is example";
-    
     NSString *headline = [viewController makeHeadline];
+    NSString *expectString = @"Here Is Example";
+    
+    XCTAssertTrue([headline isEqualToString:expectString]);
 }
 
 
