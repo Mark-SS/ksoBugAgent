@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-- (NSString *)makeHeadline;
+- (NSString *)makeHeadline:(NSString *)string;
 
 @end
 
