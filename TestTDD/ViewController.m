@@ -19,18 +19,5 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (NSString *)makeHeadline:(NSString *)string {
-    NSArray *words = [string componentsSeparatedByString:@" "];
-    NSMutableArray *mutableWords = [[NSMutableArray alloc] initWithCapacity:words.count];
-    [words enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *firstChar = [obj substringToIndex:1];
-        NSString *uppercaseString = [firstChar uppercaseString];
-        NSString *string2 = [obj stringByReplacingCharactersInRange:NSMakeRange(0, 1)
-                                                         withString:uppercaseString];
-        [mutableWords addObject:string2];
-    }];
-    return [mutableWords componentsJoinedByString:@" "];
-}
-
 
 @end
