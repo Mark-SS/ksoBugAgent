@@ -36,7 +36,6 @@
  
  需求变化时需要维护测试用例：也许对TDD最强烈的争论就是测试与代码一样必须进行维护。无论什么时候需求变化了，你都需要修改代码和测试。但是你使用的是TDD，这意味着你需要先更改测试，然后再通过测试。因此，实际上，这个缺点和前一个一样，显然需要花费更长时间。
  */
-
 #import <XCTest/XCTest.h>
 #import "ViewController.h"
 
@@ -57,7 +56,6 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
 
 /**
  红1. 这个测试方法没有写完，因为我们还没有写断言，没有测试任何东西。但是我们不得不暂停。因为现在编译器已经报错，说我们的 ViewController declares the selector 'makeHeadline', 根据 TDD 流程，我们需要添加代码，知道编译器不再报错。测试代码编译不通过，也意味着“测试失败”。测试失败意味着我们需要编写代码。
