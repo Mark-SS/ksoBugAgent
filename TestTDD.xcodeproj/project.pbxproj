@@ -23,6 +23,7 @@
 		3E1E13372106BB6200EDD4C1 /* KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E13362106BB6200EDD4C1 /* KSOBugAgent.m */; };
 		3E1E133A2106C6E000EDD4C1 /* NSObject+KSOSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */; };
 		3E1E133D2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */; };
+		3E1E13402107170600EDD4C1 /* KSODevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E133F2107170600EDD4C1 /* KSODevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSOSwizzle.m"; sourceTree = "<group>"; };
 		3E1E133B2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSOBugAgent.h"; sourceTree = "<group>"; };
 		3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSOBugAgent.m"; sourceTree = "<group>"; };
+		3E1E133E2107170600EDD4C1 /* KSODevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSODevice.h; sourceTree = "<group>"; };
+		3E1E133F2107170600EDD4C1 /* KSODevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSODevice.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */,
 				3E1E133B2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.h */,
 				3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */,
+				3E1E133E2107170600EDD4C1 /* KSODevice.h */,
+				3E1E133F2107170600EDD4C1 /* KSODevice.m */,
 				3E1E12F52101887D00EDD4C1 /* Main.storyboard */,
 				3E1E12F82101887E00EDD4C1 /* Assets.xcassets */,
 				3E1E12FA2101887E00EDD4C1 /* LaunchScreen.storyboard */,
@@ -302,6 +307,7 @@
 			files = (
 				3E1E13252105C76800EDD4C1 /* AViewController.m in Sources */,
 				3E1E12F42101887D00EDD4C1 /* ViewController.m in Sources */,
+				3E1E13402107170600EDD4C1 /* KSODevice.m in Sources */,
 				3E1E13372106BB6200EDD4C1 /* KSOBugAgent.m in Sources */,
 				3E1E133D2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m in Sources */,
 				3E1E133A2106C6E000EDD4C1 /* NSObject+KSOSwizzle.m in Sources */,

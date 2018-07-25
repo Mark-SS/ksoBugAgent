@@ -8,6 +8,9 @@
 
 #import "KSOBugAgent.h"
 #import <pthread.h>
+#import "KSODevice.h"
+#import "NSObject+KSOSwizzle.h"
+#import "UIViewController+KSOBugAgent.h"
 @import UIKit;
 
 #define KSOBugAgentTrackInfoMaxCount 20
@@ -18,6 +21,8 @@
 
 @property (nonatomic, strong) NSMutableArray *crashTracks;  // 崩溃轨迹追踪，默认追踪 20 条
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) KSODevice *device;
+@property (nonatomic, strong) NSDictionary *deviceInfo;
 
 @end
 
@@ -42,6 +47,9 @@
         pthread_mutex_init(&_lock, NULL);
         _crashTracks = [[NSMutableArray alloc] initWithCapacity:KSOBugAgentTrackInfoMaxCount];
         [self setUpListeners];
+        [self getDeviceInfo];
+        [UIViewController kso_swizzleSEL:@selector(viewWillAppear:)
+                                 withSEL:@selector(kso_bugAgent_viewWillAppear:)];
     }
     return self;
 }
@@ -131,6 +139,18 @@ void caughtExceptionHandler(NSException *exception) {
     pthread_mutex_unlock(&_lock);
 }
 
+- (void)getDeviceInfo {
+    KSODevice *device = self.device;
+    NSDictionary *info = @{@"systemName": device.systemName,
+                           @"systemVersion": device.systemVersion,
+                           @"deviceModel": device.deviceModel,
+                           @"appVersion": device.appVersion,
+                           @"freeMemory": [NSString stringWithFormat:@"%.2f MB", device.getFreeMemory / 1024.0 / 1024.0],
+                           @"freeDisk": [NSString stringWithFormat:@"%.2f MB", device.getFreeDiskSpace / 1024.0 / 1024.0]
+                           };
+    self.deviceInfo = info;
+}
+
 #pragma mark - properties
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
@@ -138,6 +158,13 @@ void caughtExceptionHandler(NSException *exception) {
         [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
     return _dateFormatter;
+}
+
+- (KSODevice *)device {
+    if (!_device) {
+        _device = [KSODevice new];
+    }
+    return _device;
 }
 
 #pragma mark - app 通知
@@ -186,5 +213,6 @@ void caughtExceptionHandler(NSException *exception) {
     NSString *trackString = [NSString stringWithFormat:@"【UIApplication】WillTerminate"];
     [self addTrackInfo:trackString];
 }
+
 
 @end

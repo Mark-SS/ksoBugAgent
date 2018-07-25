@@ -11,13 +11,15 @@
 
 @interface KSOBugAgent : NSObject
 
-
+#pragma mark - Public
 /**
  开启 Bug 追踪
  */
 + (void)start;
 
+
 + (instancetype)sharedInstance;
+
 /**
  追中 viewController
 

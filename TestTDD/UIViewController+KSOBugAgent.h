@@ -10,4 +10,6 @@
 
 @interface UIViewController (KSOBugAgent)
 
+- (void)kso_bugAgent_viewWillAppear:(BOOL)animated;
+
 @end
