@@ -20,10 +20,10 @@
 		3E1E13282105C77300EDD4C1 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E13272105C77300EDD4C1 /* BViewController.m */; };
 		3E1E132B2105C77B00EDD4C1 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E132A2105C77B00EDD4C1 /* CViewController.m */; };
 		3E1E132E2105CE1B00EDD4C1 /* AppDelegate+topViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E132D2105CE1B00EDD4C1 /* AppDelegate+topViewController.m */; };
-		3E1E13372106BB6200EDD4C1 /* KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E13362106BB6200EDD4C1 /* KSOBugAgent.m */; };
-		3E1E133A2106C6E000EDD4C1 /* NSObject+KSOSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */; };
-		3E1E133D2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */; };
-		3E1E13402107170600EDD4C1 /* KSODevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E133F2107170600EDD4C1 /* KSODevice.m */; };
+		3EF290FE21096E5800BC04DD /* KSODevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290FA21096E5800BC04DD /* KSODevice.m */; };
+		3EF290FF21096E5800BC04DD /* NSObject+KSOSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290FB21096E5800BC04DD /* NSObject+KSOSwizzle.m */; };
+		3EF2910021096E5800BC04DD /* KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290FC21096E5800BC04DD /* KSOBugAgent.m */; };
+		3EF2910121096E5800BC04DD /* UIViewController+KSOBugAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF290FD21096E5800BC04DD /* UIViewController+KSOBugAgent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,14 +69,14 @@
 		3E1E132A2105C77B00EDD4C1 /* CViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		3E1E132C2105CE1B00EDD4C1 /* AppDelegate+topViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+topViewController.h"; sourceTree = "<group>"; };
 		3E1E132D2105CE1B00EDD4C1 /* AppDelegate+topViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+topViewController.m"; sourceTree = "<group>"; };
-		3E1E13352106BB6200EDD4C1 /* KSOBugAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSOBugAgent.h; sourceTree = "<group>"; };
-		3E1E13362106BB6200EDD4C1 /* KSOBugAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSOBugAgent.m; sourceTree = "<group>"; };
-		3E1E13382106C6DF00EDD4C1 /* NSObject+KSOSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSOSwizzle.h"; sourceTree = "<group>"; };
-		3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSOSwizzle.m"; sourceTree = "<group>"; };
-		3E1E133B2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSOBugAgent.h"; sourceTree = "<group>"; };
-		3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSOBugAgent.m"; sourceTree = "<group>"; };
-		3E1E133E2107170600EDD4C1 /* KSODevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSODevice.h; sourceTree = "<group>"; };
-		3E1E133F2107170600EDD4C1 /* KSODevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSODevice.m; sourceTree = "<group>"; };
+		3EF290F621096E5800BC04DD /* KSODevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSODevice.h; sourceTree = "<group>"; };
+		3EF290F721096E5800BC04DD /* KSOBugAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSOBugAgent.h; sourceTree = "<group>"; };
+		3EF290F821096E5800BC04DD /* NSObject+KSOSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSOSwizzle.h"; sourceTree = "<group>"; };
+		3EF290F921096E5800BC04DD /* UIViewController+KSOBugAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSOBugAgent.h"; sourceTree = "<group>"; };
+		3EF290FA21096E5800BC04DD /* KSODevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSODevice.m; sourceTree = "<group>"; };
+		3EF290FB21096E5800BC04DD /* NSObject+KSOSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSOSwizzle.m"; sourceTree = "<group>"; };
+		3EF290FC21096E5800BC04DD /* KSOBugAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSOBugAgent.m; sourceTree = "<group>"; };
+		3EF290FD21096E5800BC04DD /* UIViewController+KSOBugAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSOBugAgent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,14 +139,7 @@
 				3E1E13272105C77300EDD4C1 /* BViewController.m */,
 				3E1E13292105C77B00EDD4C1 /* CViewController.h */,
 				3E1E132A2105C77B00EDD4C1 /* CViewController.m */,
-				3E1E13352106BB6200EDD4C1 /* KSOBugAgent.h */,
-				3E1E13362106BB6200EDD4C1 /* KSOBugAgent.m */,
-				3E1E13382106C6DF00EDD4C1 /* NSObject+KSOSwizzle.h */,
-				3E1E13392106C6E000EDD4C1 /* NSObject+KSOSwizzle.m */,
-				3E1E133B2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.h */,
-				3E1E133C2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m */,
-				3E1E133E2107170600EDD4C1 /* KSODevice.h */,
-				3E1E133F2107170600EDD4C1 /* KSODevice.m */,
+				3EF290F521096E5800BC04DD /* ksoBugAgent */,
 				3E1E12F52101887D00EDD4C1 /* Main.storyboard */,
 				3E1E12F82101887E00EDD4C1 /* Assets.xcassets */,
 				3E1E12FA2101887E00EDD4C1 /* LaunchScreen.storyboard */,
@@ -173,6 +166,21 @@
 				3E1E13152101887E00EDD4C1 /* Info.plist */,
 			);
 			path = TestTDDUITests;
+			sourceTree = "<group>";
+		};
+		3EF290F521096E5800BC04DD /* ksoBugAgent */ = {
+			isa = PBXGroup;
+			children = (
+				3EF290F721096E5800BC04DD /* KSOBugAgent.h */,
+				3EF290FC21096E5800BC04DD /* KSOBugAgent.m */,
+				3EF290F621096E5800BC04DD /* KSODevice.h */,
+				3EF290FA21096E5800BC04DD /* KSODevice.m */,
+				3EF290F821096E5800BC04DD /* NSObject+KSOSwizzle.h */,
+				3EF290FB21096E5800BC04DD /* NSObject+KSOSwizzle.m */,
+				3EF290F921096E5800BC04DD /* UIViewController+KSOBugAgent.h */,
+				3EF290FD21096E5800BC04DD /* UIViewController+KSOBugAgent.m */,
+			);
+			path = ksoBugAgent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,13 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF2910021096E5800BC04DD /* KSOBugAgent.m in Sources */,
 				3E1E13252105C76800EDD4C1 /* AViewController.m in Sources */,
 				3E1E12F42101887D00EDD4C1 /* ViewController.m in Sources */,
-				3E1E13402107170600EDD4C1 /* KSODevice.m in Sources */,
-				3E1E13372106BB6200EDD4C1 /* KSOBugAgent.m in Sources */,
-				3E1E133D2106D2D800EDD4C1 /* UIViewController+KSOBugAgent.m in Sources */,
-				3E1E133A2106C6E000EDD4C1 /* NSObject+KSOSwizzle.m in Sources */,
 				3E1E132B2105C77B00EDD4C1 /* CViewController.m in Sources */,
+				3EF2910121096E5800BC04DD /* UIViewController+KSOBugAgent.m in Sources */,
+				3EF290FF21096E5800BC04DD /* NSObject+KSOSwizzle.m in Sources */,
+				3EF290FE21096E5800BC04DD /* KSODevice.m in Sources */,
 				3E1E12FF2101887E00EDD4C1 /* main.m in Sources */,
 				3E1E13282105C77300EDD4C1 /* BViewController.m in Sources */,
 				3E1E132E2105CE1B00EDD4C1 /* AppDelegate+topViewController.m in Sources */,
@@ -486,8 +494,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X3FF8373UG;
+				DEVELOPMENT_TEAM = 88H69TJXSZ;
 				INFOPLIST_FILE = TestTDD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,8 +512,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X3FF8373UG;
+				DEVELOPMENT_TEAM = 88H69TJXSZ;
 				INFOPLIST_FILE = TestTDD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

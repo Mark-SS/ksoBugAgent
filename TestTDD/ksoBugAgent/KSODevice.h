@@ -11,16 +11,16 @@
 @interface KSODevice : NSObject
 
 // 获取当前系统名 eg: iOS
-- (NSString *)systemName;
+- (nonnull NSString *)systemName;
 
 // 获取当前系统版本 eg: 11.4
-- (NSString *)systemVersion;
+- (nonnull NSString *)systemVersion;
 
 // 获取设备 model, eg: iPhone8,1
-- (NSString *)deviceModel;
+- (nonnull NSString *)deviceModel;
 
 // 获取 app 的版本, eg: 1.1
-- (NSString *)appVersion;
+- (nonnull NSString *)appVersion;
 
 // 获取可用内存大小，单位 Byte，
 - (int64_t)getFreeMemory;

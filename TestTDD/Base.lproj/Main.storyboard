@@ -94,6 +94,14 @@
                                     <action selector="dictionaryCrash1:" destination="X1X-8h-XOw" eventType="touchUpInside" id="AaB-BR-ocH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ply-3y-ReK">
+                                <rect key="frame" x="149" y="305" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找不到方法"/>
+                                <connections>
+                                    <action selector="notFoundCrash:" destination="X1X-8h-XOw" eventType="touchUpInside" id="hO9-sX-KQ0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IMS-2U-flM"/>

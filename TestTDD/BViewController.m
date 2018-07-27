@@ -32,13 +32,17 @@
     [a addObject:testString];
 }
 
+#pragma mark - 字典插入 nil
 - (IBAction)dictionaryCrash1:(UIButton *)sender {
     NSString *testString = nil;
     NSDictionary *dict = @{@"test": testString};
     NSLog(@"dict: %@", dict);
 }
 
-#pragma mark - 字典插入 nil
+- (IBAction)notFoundCrash:(UIButton *)sender {
+    [self performSelector:@selector(aaa:) withObject:nil];
+}
+
 
 /*
 #pragma mark - Navigation

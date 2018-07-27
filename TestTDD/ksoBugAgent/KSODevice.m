@@ -21,25 +21,25 @@
 @implementation KSODevice
 
 #pragma mark - Public
-- (NSString *)systemName {
-    return self.device.systemName;
+- (nonnull NSString *)systemName {
+    return self.device.systemName ?: @"";
 }
 
-- (NSString *)systemVersion {
-    return self.device.systemVersion;
+- (nonnull NSString *)systemVersion {
+    return self.device.systemVersion ?: @"";
 }
 
-- (NSString *)deviceModel {
+- (nonnull NSString *)deviceModel {
     // 获取设备类型：
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *deviceModel = [NSString stringWithCString:systemInfo.machine
                                                encoding:NSUTF8StringEncoding];
-    return deviceModel;
+    return deviceModel ?: @"";
 }
 
-- (NSString *)appVersion {
-    return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+- (nonnull NSString *)appVersion {
+    return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] ?: @"";
 }
 
 #pragma mark - properties

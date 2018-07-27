@@ -11,6 +11,8 @@
 #import "KSODevice.h"
 #import "NSObject+KSOSwizzle.h"
 #import "UIViewController+KSOBugAgent.h"
+#import <mach-o/ldsyms.h>
+#import <mach-o/dyld.h>
 @import UIKit;
 
 #define KSOBugAgentTrackInfoMaxCount 20
@@ -83,16 +85,82 @@
     [self addTrackInfo:trackString];
 }
 
+
+void writeCrashLog(NSString *log) {
+    
+    NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *directoryPath = [document stringByAppendingPathComponent:@"ksoBugAgent"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:directoryPath]) {
+        [fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSDate *date = [NSDate date];
+    NSString *dateString = [[KSOBugAgent sharedInstance].dateFormatter stringFromDate:date];
+    NSString *file = [dateString stringByAppendingString:@".crash"];
+    NSString *filePath = [directoryPath stringByAppendingPathComponent:file];
+    
+    [log writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
 void caughtExceptionHandler(NSException *exception) {
     // 获取异常崩溃信息
     NSArray *callStack = [exception callStackSymbols];
     NSString *reason = [exception reason];
     NSString *name = [exception name];
+    NSString *stack = [callStack componentsJoinedByString:@"\n"];
+    KSOBugAgent *bugAgent = [KSOBugAgent sharedInstance];
+    KSODevice *device = bugAgent.device;
+    NSString *tracks = [[bugAgent crashTracks] componentsJoinedByString:@"\n"];
+    NSString *uuid = executableUUID();
+    NSString *dyld = dyldAddress();
+    NSString *content = [NSString stringWithFormat:@"========异常错误报告 start========\n\nuuid: %@\nname: %@\n\nreason: %@\n\nstack:\n%@\n\n\n跟踪流程：\n%@\n\n设备信息：\n系统：%@ \n系统版本：%@\n设备型号：%@\napp 版本：%@\n剩余内存：%.2f MB\n剩余磁盘空间：%.2f MB \n \n\n库文件 load Address:\n%@ \n pi \n\n========异常错误报告 end==========", uuid, name, reason, stack, tracks, device.systemName, device.systemVersion, device.deviceModel, device.appVersion, device.getFreeMemory / 1024 / 1024.0, device.getFreeDiskSpace / 1024.0 / 1024.0, dyld];
+    writeCrashLog(content);
+}
 
-    NSString *content = [NSString stringWithFormat:@"========异常错误报告========\nname:\n%@\nreason:\n%@callStackSymbols:\n%@", name, reason, [callStack componentsJoinedByString:@"\n"]];
-    NSLog(@"%@ \n", content);
-    NSLog(@"====> 跟踪流程：\n%@\n",  [[[KSOBugAgent sharedInstance] crashTracks] componentsJoinedByString:@"\n"]);
-    NSLog(@"========异常错误报告 end==========");
+NSString *dyldAddress() {
+    uint32_t numImages = _dyld_image_count();
+    NSString *dylds = @"";
+    for (uint32_t i = 0; i < numImages; i++) {
+        const struct mach_header *header = _dyld_get_image_header(i);
+        const char *name = _dyld_get_image_name(i);
+        const char *p = strrchr(name, '/');
+        if (p) {
+            NSString *temp = [NSString stringWithCString:p + 1
+                                                encoding:NSUTF8StringEncoding];
+            NSString *headerString = [NSString stringWithFormat:@"%p", header];
+            dylds = [dylds stringByAppendingString:[NSString stringWithFormat:@"%@: %@ \n", temp, headerString]];
+        }
+    }
+    return dylds;
+}
+
+long calculateSlideAddress() {
+    for (uint32_t i = 0; i < _dyld_image_count(); i++) {
+        if (_dyld_get_image_header(i)->filetype == MH_EXECUTE) {
+            long slide = _dyld_get_image_vmaddr_slide(i);
+            return slide;
+        }
+    }
+    return 0;
+}
+
+NSString *executableUUID()
+{
+    const uint8_t *command = (const uint8_t *)(&_mh_execute_header + 1);
+    for (uint32_t idx = 0; idx < _mh_execute_header.ncmds; ++idx) {
+        if (((const struct load_command *)command)->cmd == LC_UUID) {
+            command += sizeof(struct load_command);
+            return [NSString stringWithFormat:@"%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X",
+                    command[0], command[1], command[2], command[3],
+                    command[4], command[5],
+                    command[6], command[7],
+                    command[8], command[9],
+                    command[10], command[11], command[12], command[13], command[14], command[15]];
+        } else {
+            command += ((const struct load_command *)command)->cmdsize;
+        }
+    }
+    return nil;
 }
 
 #pragma mark - Private
